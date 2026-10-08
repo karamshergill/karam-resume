@@ -517,6 +517,7 @@ footer {
     .projects-page .projects-intro {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 2rem;
     }
 
