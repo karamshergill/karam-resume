@@ -433,3 +433,38 @@ footer {
         text-align: start;
     }
 }
+
+
+/* PROJECTS INTRODUCTION - MOBILE
+------------------------------------*/
+
+.projects-page .projects-intro {
+    margin-block-end: 2rem;
+}
+
+.projects-page .projects-intro p {
+    margin-block-start: 1rem;
+}
+
+
+/* PROJECTS INTRODUCTION - DESKTOP
+------------------------------------*/
+
+@media screen and (min-width: 860px) {
+
+    .projects-page .projects-intro {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .projects-page .projects-intro h2 {
+        flex: 1;
+        white-space: nowrap;
+    }
+
+    .projects-page .projects-intro p {
+        flex: 3;
+        margin-block: 0;
+    }
+}
