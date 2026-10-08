@@ -528,3 +528,78 @@ footer {
         margin-block: 0;
     }
 }
+
+/* CONTACT FORM - MOBILE
+------------------------------------*/
+
+.projects-page .contact-section {
+    margin-block: 4rem;
+    padding: 2rem;
+    background: var(--neutral-2);
+    border-radius: 0.5rem;
+}
+
+.projects-page .contact-section h2 {
+    margin-block-end: 1rem;
+}
+
+.projects-page .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.projects-page .contact-form>label {
+    display: block;
+}
+
+.projects-page .contact-form input[type="text"],
+.projects-page .contact-form input[type="email"],
+.projects-page .contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--neutral-4);
+    border-radius: 0.5rem;
+    font: inherit;
+}
+
+/* RADIO BUTTONS - GRID */
+
+.projects-page .radio-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+    margin-block: 1rem;
+}
+
+.projects-page .radio-buttons p {
+    grid-column: span 3;
+    margin: 0;
+}
+
+.projects-page .radio-buttons label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* SUBMIT BUTTON - FLEXBOX */
+
+.projects-page .contact-form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: var(--accent-green);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font: inherit;
+    cursor: pointer;
+}
+
+.projects-page .contact-form button:hover {
+    background: var(--neutral-7);
+}
