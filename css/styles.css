@@ -1,10 +1,4 @@
-/*
-COLOR PALETTE
-
-Neutral shades and accent colours use OKLCH.
-*/
-
-/* GLOBAL STYLES
+/* COLOR PALETTE
 ------------------------------------*/
 
 :root {
@@ -27,13 +21,12 @@ Neutral shades and accent colours use OKLCH.
     --accent-beige: oklch(75% 0.04 70);
 }
 
-/*
- https://www.paulirish.com/2012/box-sizing-border-box-ftw/
-*/
+/* GLOBAL STYLES
+------------------------------------*/
+
 html {
     box-sizing: border-box;
     font-size: 62.5%;
-    /* setting default to 10px */
 }
 
 *,
@@ -77,7 +70,9 @@ h3 {
     font-size: 2.4rem;
 }
 
-/* links */
+/* LINKS
+------------------------------------*/
+
 a {
     color: var(--accent-green);
 }
@@ -114,7 +109,6 @@ footer a:hover {
     max-width: 900px;
 }
 
-
 /* HOME
 ------------------------------------*/
 
@@ -139,7 +133,6 @@ footer a:hover {
         padding: 30px;
     }
 }
-
 
 /* RESUME
 ------------------------------------*/
@@ -195,8 +188,7 @@ footer a:hover {
     }
 }
 
-
-/* Projects
+/* PROJECTS - ORIGINAL STYLES
 ------------------------------------*/
 
 .project-item {
@@ -238,8 +230,7 @@ footer a:hover {
     }
 }
 
-
-/* Work Experience
+/* WORK EXPERIENCE
 ------------------------------------*/
 
 .work-item {
@@ -262,8 +253,7 @@ footer a:hover {
     }
 }
 
-
-/* Education
+/* EDUCATION
 ------------------------------------*/
 
 .education-item {
@@ -273,7 +263,6 @@ footer a:hover {
 .education-item p {
     margin: 0;
 }
-
 
 /* FOOTER
 ------------------------------------*/
@@ -306,13 +295,350 @@ footer {
     opacity: 0.5;
 }
 
+/* FOOTER - DESKTOP GRID */
+
 @media screen and (min-width: 861px) {
     footer {
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
         text-align: initial;
+    }
+
+    footer .socials {
+        justify-self: end;
     }
 
     .socials li {
         margin: 0 0 0 10px;
+    }
+}
+
+/* FOOTER - EXTRA LARGE SCREENS */
+
+@media screen and (min-width: 1000px) {
+
+    .projects-page footer {
+        grid-template-columns:
+            minmax(20px, 1fr) minmax(0, 430px) minmax(0, 430px) minmax(20px, 1fr);
+
+        grid-template-areas: ". copyright socials .";
+    }
+
+    .projects-page footer>p {
+        grid-area: copyright;
+    }
+
+    .projects-page footer .socials {
+        grid-area: socials;
+        justify-self: end;
+    }
+}
+
+/* PROJECTS PAGE - RESPONSIVE GRID
+------------------------------------*/
+
+.projects-page .project-wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+}
+
+.projects-page .project-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(14rem, 1fr);
+    align-content: start;
+    min-width: 0;
+    margin: 0;
+    padding: 1.5rem;
+    background: var(--neutral-2);
+    border-radius: 0.5rem;
+}
+
+/* PROJECT CARD IMAGES
+------------------------------------*/
+
+.projects-page .project-item img {
+    display: block;
+    float: none;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    margin: 0;
+    border-radius: 0.5rem;
+}
+
+/* PROJECT CARD TITLES
+------------------------------------*/
+
+.projects-page .project-item img+h3 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    align-self: end;
+    z-index: 1;
+    margin: 0;
+    padding: 1rem;
+    color: white;
+    background: oklch(20% 0.02 150 / 0.85);
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* PROJECT CARD TEXT
+------------------------------------*/
+
+.projects-page .project-item p {
+    grid-column: 1 / 2;
+    margin-block: 1rem 0;
+}
+
+/* ANIMATION PLACEHOLDER CARDS
+------------------------------------*/
+
+.projects-page .project-item:not(:has(img)) {
+    grid-template-rows: auto minmax(14rem, 1fr);
+}
+
+.projects-page .project-item:not(:has(img)) h3 {
+    margin-block-end: 1rem;
+}
+
+/* PROJECT CARDS - DESKTOP
+------------------------------------*/
+
+@media screen and (min-width: 860px) {
+    .projects-page .project-wrapper {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
+    }
+
+    .projects-page .project-item {
+        padding: 1.5rem;
+    }
+
+    .projects-page .project-item img {
+        height: 18rem;
+    }
+}
+
+/* HERO SECTION - MOBILE
+------------------------------------*/
+
+.projects-page .hero::before {
+    display: none;
+}
+
+.projects-page .hero {
+    background: var(--neutral-2);
+}
+
+.projects-page .hero-content {
+    display: grid;
+    grid-template-columns: 1rem minmax(0, 2fr) 1rem;
+    grid-template-rows: 0.5fr 1fr 2rem;
+    gap: 2rem;
+    width: 100%;
+    max-width: 900px;
+    padding-block: 2rem;
+    padding-inline: 1rem;
+}
+
+.projects-page .hero-image {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: block;
+    width: 100%;
+    max-width: 20rem;
+    height: auto;
+    justify-self: center;
+    align-self: center;
+    border-radius: 0.5rem;
+}
+
+.projects-page .hero-article {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    min-width: 0;
+    text-align: center;
+}
+
+.projects-page .hero-article h1 {
+    margin-block-end: 1rem;
+}
+
+.projects-page .hero-article p {
+    margin-block-start: 1rem;
+    margin-block-end: 0;
+    max-width: 70rem;
+}
+
+/* HERO SECTION - DESKTOP
+------------------------------------*/
+
+@media screen and (min-width: 860px) {
+    .projects-page .hero-content {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-rows: 0.25fr 1fr 0.25fr;
+        align-items: center;
+    }
+
+    .projects-page .hero-image {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    .projects-page .hero-article {
+        grid-column: 3 / 6;
+        grid-row: 2 / 3;
+        text-align: start;
+    }
+}
+
+/* PROJECTS INTRODUCTION - MOBILE
+------------------------------------*/
+
+.projects-page .projects-intro {
+    margin-block-end: 2rem;
+}
+
+.projects-page .projects-intro p {
+    margin-block-start: 1rem;
+}
+
+/* PROJECTS INTRODUCTION - DESKTOP
+------------------------------------*/
+
+@media screen and (min-width: 860px) {
+    .projects-page .projects-intro {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .projects-page .projects-intro h2 {
+        flex: 1;
+        white-space: nowrap;
+    }
+
+    .projects-page .projects-intro p {
+        flex: 3;
+        margin-block: 0;
+    }
+}
+
+/* CONTACT FORM - MOBILE
+------------------------------------*/
+
+.projects-page .contact-section {
+    margin-block: 4rem;
+    padding: 2rem;
+    background: var(--neutral-2);
+    border-radius: 0.5rem;
+}
+
+.projects-page .contact-section h2 {
+    margin-block-end: 1rem;
+}
+
+.projects-page .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.projects-page .contact-form label {
+    display: block;
+    margin-block-end: 0.5rem;
+}
+
+.projects-page .contact-form input[type="text"],
+.projects-page .contact-form input[type="email"],
+.projects-page .contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--neutral-4);
+    border-radius: 0.5rem;
+    font: inherit;
+}
+
+/* RADIO BUTTONS - GRID */
+
+.projects-page .radio-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+    margin-block: 1rem;
+}
+
+.projects-page .radio-buttons p {
+    grid-column: span 3;
+    margin: 0;
+}
+
+.projects-page .radio-buttons label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* SUBMIT BUTTON - FLEXBOX */
+
+.projects-page .contact-form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: var(--accent-green);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font: inherit;
+    cursor: pointer;
+}
+
+.projects-page .contact-form button:hover {
+    background: var(--neutral-7);
+}
+
+/* CONTACT FORM - DESKTOP GRID
+------------------------------------*/
+
+@media screen and (min-width: 1000px) {
+
+    .projects-page .contact-form {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+            "name email"
+            "message message"
+            "contact button";
+        gap: 1rem;
+        align-items: start;
+    }
+
+    .projects-page .form-name {
+        grid-area: name;
+    }
+
+    .projects-page .form-email {
+        grid-area: email;
+    }
+
+    .projects-page .form-message {
+        grid-area: message;
+    }
+
+    .projects-page .radio-buttons {
+        grid-area: contact;
+    }
+
+    .projects-page .contact-form button {
+        grid-area: button;
+        align-self: center;
     }
 }
