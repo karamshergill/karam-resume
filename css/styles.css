@@ -314,6 +314,27 @@ footer {
     }
 }
 
+/* FOOTER - EXTRA LARGE SCREENS */
+
+@media screen and (min-width: 1000px) {
+
+    .projects-page footer {
+        grid-template-columns:
+            minmax(20px, 1fr) minmax(0, 430px) minmax(0, 430px) minmax(20px, 1fr);
+
+        grid-template-areas: ". copyright socials .";
+    }
+
+    .projects-page footer>p {
+        grid-area: copyright;
+    }
+
+    .projects-page footer .socials {
+        grid-area: socials;
+        justify-self: end;
+    }
+}
+
 /* PROJECTS PAGE - RESPONSIVE GRID
 ------------------------------------*/
 
