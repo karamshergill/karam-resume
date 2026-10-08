@@ -549,8 +549,9 @@ footer {
     gap: 1rem;
 }
 
-.projects-page .contact-form>label {
+.projects-page .contact-form label {
     display: block;
+    margin-block-end: 0.5rem;
 }
 
 .projects-page .contact-form input[type="text"],
@@ -602,4 +603,42 @@ footer {
 
 .projects-page .contact-form button:hover {
     background: var(--neutral-7);
+}
+
+/* CONTACT FORM - DESKTOP GRID
+------------------------------------*/
+
+@media screen and (min-width: 1000px) {
+
+    .projects-page .contact-form {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+            "name email"
+            "message message"
+            "contact button";
+        gap: 1rem;
+        align-items: start;
+    }
+
+    .projects-page .form-name {
+        grid-area: name;
+    }
+
+    .projects-page .form-email {
+        grid-area: email;
+    }
+
+    .projects-page .form-message {
+        grid-area: message;
+    }
+
+    .projects-page .radio-buttons {
+        grid-area: contact;
+    }
+
+    .projects-page .contact-form button {
+        grid-area: button;
+        align-self: center;
+    }
 }
