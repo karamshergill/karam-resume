@@ -30,10 +30,10 @@ Neutral shades and accent colours use OKLCH.
 /*
  https://www.paulirish.com/2012/box-sizing-border-box-ftw/
 */
+
 html {
     box-sizing: border-box;
     font-size: 62.5%;
-    /* setting default to 10px */
 }
 
 *,
@@ -77,7 +77,9 @@ h3 {
     font-size: 2.4rem;
 }
 
-/* links */
+/* LINKS
+------------------------------------*/
+
 a {
     color: var(--accent-green);
 }
@@ -161,6 +163,7 @@ footer a:hover {
 }
 
 @media screen and (min-width: 501px) {
+
     .resume header::before {
         height: 375px;
     }
@@ -190,13 +193,14 @@ footer a:hover {
 }
 
 @media screen and (min-width: 1201px) {
+
     .download-link {
         position: fixed;
     }
 }
 
 
-/* Projects
+/* PROJECTS - ORIGINAL STYLES
 ------------------------------------*/
 
 .project-item {
@@ -209,6 +213,7 @@ footer a:hover {
 }
 
 @media screen and (min-width: 501px) {
+
     .project-item img {
         width: 300px;
         margin-bottom: 0;
@@ -216,6 +221,7 @@ footer a:hover {
 }
 
 @media screen and (min-width: 650px) and (max-width: 859px) {
+
     .project-wrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -228,6 +234,7 @@ footer a:hover {
 }
 
 @media screen and (min-width: 860px) {
+
     .project-item {
         display: flow-root;
     }
@@ -239,7 +246,7 @@ footer a:hover {
 }
 
 
-/* Work Experience
+/* WORK EXPERIENCE
 ------------------------------------*/
 
 .work-item {
@@ -251,6 +258,7 @@ footer a:hover {
 }
 
 @media screen and (min-width: 860px) {
+
     .work-item {
         display: grid;
         grid-template-columns: 300px 1fr;
@@ -263,7 +271,7 @@ footer a:hover {
 }
 
 
-/* Education
+/* EDUCATION
 ------------------------------------*/
 
 .education-item {
@@ -307,6 +315,7 @@ footer {
 }
 
 @media screen and (min-width: 861px) {
+
     footer {
         flex-direction: row;
         text-align: initial;
@@ -318,7 +327,7 @@ footer {
 }
 
 
-/* PROJECTS PAGE
+/* PROJECTS PAGE - RESPONSIVE GRID
 ------------------------------------*/
 
 .projects-page .project-wrapper {
@@ -328,38 +337,87 @@ footer {
 }
 
 .projects-page .project-item {
-    display: block;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(14rem, 1fr);
+    align-content: start;
     min-width: 0;
     margin: 0;
     padding: 1.5rem;
     background: var(--neutral-2);
     border-radius: 0.5rem;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto auto 1fr;
-    align-content: start;
 }
+
+
+/* PROJECT CARD IMAGES
+------------------------------------*/
 
 .projects-page .project-item img {
     display: block;
     float: none;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
     width: 100%;
-    height: auto;
+    height: 20rem;
+    object-fit: cover;
     margin: 0;
-    margin-block-end: 1rem;
+    border-radius: 0.5rem;
 }
 
-.projects-page .project-item h3 {
-    margin-block-end: 1rem;
+
+/* PROJECT CARD TITLES
+------------------------------------*/
+
+.projects-page .project-item img+h3 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    align-self: end;
+    z-index: 1;
+    margin: 0;
+    padding: 1rem;
+    color: white;
+    background: oklch(20% 0.02 150 / 0.85);
+    border-radius: 0 0 0.5rem 0.5rem;
 }
+
+
+/* PROJECT CARD TEXT
+------------------------------------*/
 
 .projects-page .project-item p {
-    margin-block: 0;
+    grid-column: 1 / 2;
+    margin-block: 1rem 0;
 }
 
+
+/* ANIMATION PLACEHOLDER CARDS
+------------------------------------*/
+
+.projects-page .project-item:not(:has(img)) {
+    grid-template-rows: auto minmax(14rem, 1fr);
+}
+
+.projects-page .project-item:not(:has(img)) h3 {
+    margin-block-end: 1rem;
+}
+
+
+/* PROJECT CARDS - DESKTOP
+------------------------------------*/
+
 @media screen and (min-width: 860px) {
+
     .projects-page .project-wrapper {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
+    }
+
+    .projects-page .project-item {
+        padding: 1.5rem;
+    }
+
+    .projects-page .project-item img {
+        height: 18rem;
     }
 }
 
