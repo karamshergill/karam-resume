@@ -334,6 +334,10 @@ footer {
     padding: 1.5rem;
     background: var(--neutral-2);
     border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr;
+    align-content: start;
 }
 
 .projects-page .project-item img {
