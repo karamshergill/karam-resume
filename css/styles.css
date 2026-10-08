@@ -1,0 +1,318 @@
+/*
+COLOR PALETTE
+
+Neutral shades and accent colours use OKLCH.
+*/
+
+/* GLOBAL STYLES
+------------------------------------*/
+
+:root {
+    --font-body: "Open Sans", sans-serif;
+    --font-heading: "Caveat", cursive;
+
+    --neutral: oklch(50% 0.02 150);
+
+    --neutral-1: oklch(from var(--neutral) 98% c h);
+    --neutral-2: oklch(from var(--neutral) 90% c h);
+    --neutral-3: oklch(from var(--neutral) 80% c h);
+    --neutral-4: oklch(from var(--neutral) 70% c h);
+    --neutral-5: oklch(from var(--neutral) 60% c h);
+    --neutral-6: oklch(from var(--neutral) 50% c h);
+    --neutral-7: oklch(from var(--neutral) 40% c h);
+    --neutral-8: oklch(from var(--neutral) 30% c h);
+    --neutral-9: oklch(from var(--neutral) 20% c h);
+
+    --accent-green: oklch(56% 0.11 150);
+    --accent-beige: oklch(75% 0.04 70);
+}
+
+/*
+ https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+*/
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /* setting default to 10px */
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background: var(--neutral-1);
+    color: var(--neutral-9);
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    line-height: 1.4;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    margin: 0;
+}
+
+h1 {
+    font-size: 7rem;
+    line-height: 0.85;
+}
+
+h2 {
+    font-size: 3.6rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+/* links */
+a {
+    color: var(--accent-green);
+}
+
+a:hover {
+    color: var(--accent-beige);
+    text-decoration: none;
+}
+
+footer a {
+    color: var(--accent-beige);
+}
+
+footer a:hover {
+    color: var(--accent-green);
+}
+
+.btn {
+    background: var(--accent-green);
+    color: var(--neutral-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    display: inline-block;
+    padding: 7px;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    border-radius: 4px;
+}
+
+.content-wrapper {
+    margin: 0 auto;
+    padding: 30px;
+    max-width: 900px;
+}
+
+
+/* HOME
+------------------------------------*/
+
+.home {
+    background: url(../images/karam.jpg) no-repeat center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.home .content-wrapper {
+    flex: 1 0 auto;
+    padding: 10px;
+}
+
+.content-bg {
+    padding: 20px;
+}
+
+@media screen and (min-width: 501px) {
+    .home .content-wrapper {
+        padding: 30px;
+    }
+}
+
+
+/* RESUME
+------------------------------------*/
+
+.resume header::before {
+    background: url(../images/karam.jpg) center / cover;
+    background-size: cover;
+    content: "";
+    display: block;
+    height: 200px;
+}
+
+.resume h1 {
+    font-size: 5rem;
+}
+
+.resume h2 {
+    font-size: 2.6rem;
+}
+
+@media screen and (min-width: 501px) {
+    .resume header::before {
+        height: 375px;
+    }
+
+    .resume h1 {
+        font-size: 7rem;
+    }
+
+    .resume h2 {
+        font-size: 3.6rem;
+    }
+}
+
+.resume-section {
+    margin-bottom: 50px;
+}
+
+.resume-section h2 {
+    border-bottom: 2px dashed var(--neutral-3);
+}
+
+.download-link {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 1.5rem;
+}
+
+@media screen and (min-width: 1201px) {
+    .download-link {
+        position: fixed;
+    }
+}
+
+
+/* Projects
+------------------------------------*/
+
+.project-item {
+    margin: 30px 0;
+}
+
+.project-item img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+@media screen and (min-width: 501px) {
+    .project-item img {
+        width: 300px;
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (min-width: 650px) and (max-width: 859px) {
+    .project-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 20px;
+    }
+
+    .project-item img {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 860px) {
+    .project-item {
+        display: flow-root;
+    }
+
+    .project-item img {
+        float: left;
+        margin-right: 20px;
+    }
+}
+
+
+/* Work Experience
+------------------------------------*/
+
+.work-item {
+    margin: 30px 0;
+}
+
+.work-details p {
+    margin: 0;
+}
+
+@media screen and (min-width: 860px) {
+    .work-item {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        column-gap: 20px;
+    }
+
+    .work-summary p:first-child {
+        margin-top: 0;
+    }
+}
+
+
+/* Education
+------------------------------------*/
+
+.education-item {
+    margin: 30px 0;
+}
+
+.education-item p {
+    margin: 0;
+}
+
+
+/* FOOTER
+------------------------------------*/
+
+footer {
+    background: var(--neutral-9);
+    color: var(--neutral-3);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.socials {
+    list-style-type: none;
+    padding: 0;
+}
+
+.socials li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.socials img {
+    width: 32px;
+}
+
+.socials img:hover {
+    opacity: 0.5;
+}
+
+@media screen and (min-width: 861px) {
+    footer {
+        flex-direction: row;
+        text-align: initial;
+    }
+
+    .socials li {
+        margin: 0 0 0 10px;
+    }
+}
