@@ -295,10 +295,18 @@ footer {
     opacity: 0.5;
 }
 
+/* FOOTER - DESKTOP GRID */
+
 @media screen and (min-width: 861px) {
     footer {
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
         text-align: initial;
+    }
+
+    footer .socials {
+        justify-self: end;
     }
 
     .socials li {
