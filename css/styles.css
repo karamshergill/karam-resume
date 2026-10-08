@@ -188,6 +188,68 @@ footer a:hover {
     }
 }
 
+/* ==================================
+   TEAM SECTION
+================================== */
+
+/* Team Section - Base & Images */
+#team .teamMembers {
+  list-style-type: none;
+  margin: 1rem 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  align-items: center;
+}
+
+#team .teamMembers img {
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--neutral-1);
+}
+
+/* Ensure all items stay in the first row */
+#team .teamMembers li {
+  grid-row: 1 / 2;
+}
+
+/* Individual member positions and overlap spans */
+#team .teamMembers li:nth-child(1) {
+  grid-column: 1 / 4;
+  order: 1;
+}
+
+#team .teamMembers li:nth-child(2) {
+  grid-column: 3 / 6;
+}
+
+#team .teamMembers li:nth-child(3) {
+  grid-column: 4 / 8;
+  order: 1;
+  text-align: center;
+}
+
+#team .teamMembers li:nth-child(4) {
+  grid-column: -3 / 6;
+  text-align: right;
+}
+
+#team .teamMembers li:nth-child(5) {
+  grid-column: -4 / -1;
+  text-align: right;
+}
+
+/* Center image resizing */
+#team .teamMembers li:nth-child(3) img {
+  width: 70%;
+}
+
+/* Bring clicked or hovered item to the front */
+#team .teamMembers li:hover,
+#team .teamMembers li:active {
+  order: 2;
+}
+
 /* PROJECTS - ORIGINAL STYLES
 ------------------------------------*/
 
