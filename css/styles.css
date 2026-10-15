@@ -1,3 +1,4 @@
+
 /*
 COLOR PALETTE
 
@@ -28,7 +29,7 @@ Neutral shades and accent colours use OKLCH.
 }
 
 /*
- https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+https://www.paulirish.com/2012/box-sizing-border-box-ftw/
 */
 html {
     box-sizing: border-box;
@@ -114,7 +115,6 @@ footer a:hover {
     max-width: 900px;
 }
 
-
 /* HOME
 ------------------------------------*/
 
@@ -139,7 +139,6 @@ footer a:hover {
         padding: 30px;
     }
 }
-
 
 /* RESUME
 ------------------------------------*/
@@ -195,7 +194,6 @@ footer a:hover {
     }
 }
 
-
 /* Projects
 ------------------------------------*/
 
@@ -238,7 +236,6 @@ footer a:hover {
     }
 }
 
-
 /* Work Experience
 ------------------------------------*/
 
@@ -262,7 +259,6 @@ footer a:hover {
     }
 }
 
-
 /* Education
 ------------------------------------*/
 
@@ -273,7 +269,6 @@ footer a:hover {
 .education-item p {
     margin: 0;
 }
-
 
 /* FOOTER
 ------------------------------------*/
@@ -317,7 +312,6 @@ footer {
     }
 }
 
-
 /* PROJECTS PAGE
 ------------------------------------*/
 
@@ -356,5 +350,166 @@ footer {
 @media screen and (min-width: 48rem) {
     .projects-page .project-wrapper {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* MOBILE NAVIGATION
+------------------------------------*/
+
+.site-nav {
+    background: var(--neutral-2);
+    position: relative;
+    z-index: 10;
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-logo {
+    color: var(--accent-green);
+    font-family: var(--font-heading);
+    font-size: 3.6rem;
+    font-weight: bold;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.nav-toggle {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    right: 2rem;
+    top: 1rem;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.nav-toggle-label {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: var(--accent-green);
+    width: 26px;
+    height: 3px;
+    border-radius: 2px;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.nav-toggle-label span::before {
+    top: -8px;
+}
+
+.nav-toggle-label span::after {
+    top: 8px;
+}
+
+.nav-links {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+    padding: 1.5rem 0 0;
+    margin: 0;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    display: inline-block;
+    color: var(--neutral-9);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.6rem 0;
+}
+
+.nav-links a:hover {
+    color: var(--accent-green);
+}
+
+.nav-toggle:checked ~ .nav-links {
+    display: flex;
+}
+
+.nav-toggle:checked + .nav-toggle-label span {
+    background: transparent;
+}
+
+.nav-toggle:checked + .nav-toggle-label span::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.nav-toggle:checked + .nav-toggle-label span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.nav-links .nav-contact {
+    background: var(--accent-green);
+    color: var(--neutral-1);
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+}
+
+.nav-links .nav-contact:hover {
+    background: var(--neutral-8);
+    color: var(--neutral-1);
+}
+
+.nav-links .nav-active {
+    color: var(--accent-green);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.site-logo.nav-active {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+/* Keep navigation separate from resume header image */
+.resume .site-nav::before {
+    display: none;
+    content: none;
+}
+
+/* Position PDF link below the navigation */
+.resume .download-link {
+    top: 85px;
+}
+
+@media screen and (min-width: 1201px) {
+    .resume .download-link {
+        top: 85px;
     }
 }
