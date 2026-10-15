@@ -1,4 +1,3 @@
-
 /*
 COLOR PALETTE
 
@@ -464,20 +463,20 @@ footer {
     color: var(--accent-green);
 }
 
-.nav-toggle:checked ~ .nav-links {
+.nav-toggle:checked~.nav-links {
     display: flex;
 }
 
-.nav-toggle:checked + .nav-toggle-label span {
+.nav-toggle:checked+.nav-toggle-label span {
     background: transparent;
 }
 
-.nav-toggle:checked + .nav-toggle-label span::before {
+.nav-toggle:checked+.nav-toggle-label span::before {
     top: 0;
     transform: rotate(45deg);
 }
 
-.nav-toggle:checked + .nav-toggle-label span::after {
+.nav-toggle:checked+.nav-toggle-label span::after {
     top: 0;
     transform: rotate(-45deg);
 }
