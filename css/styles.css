@@ -1,4 +1,3 @@
-
 /*
 COLOR PALETTE
 
@@ -31,6 +30,7 @@ Neutral shades and accent colours use OKLCH.
 /*
 https://www.paulirish.com/2012/box-sizing-border-box-ftw/
 */
+
 html {
     box-sizing: border-box;
     font-size: 62.5%;
@@ -78,7 +78,8 @@ h3 {
     font-size: 2.4rem;
 }
 
-/* links */
+/* Links */
+
 a {
     color: var(--accent-green);
 }
@@ -194,7 +195,7 @@ footer a:hover {
     }
 }
 
-/* Projects
+/* PROJECTS
 ------------------------------------*/
 
 .project-item {
@@ -236,7 +237,7 @@ footer a:hover {
     }
 }
 
-/* Work Experience
+/* WORK EXPERIENCE
 ------------------------------------*/
 
 .work-item {
@@ -259,7 +260,7 @@ footer a:hover {
     }
 }
 
-/* Education
+/* EDUCATION
 ------------------------------------*/
 
 .education-item {
@@ -453,20 +454,20 @@ footer {
     color: var(--accent-green);
 }
 
-.nav-toggle:checked ~ .nav-links {
+.nav-toggle:checked~.nav-links {
     display: flex;
 }
 
-.nav-toggle:checked + .nav-toggle-label span {
+.nav-toggle:checked+.nav-toggle-label span {
     background: transparent;
 }
 
-.nav-toggle:checked + .nav-toggle-label span::before {
+.nav-toggle:checked+.nav-toggle-label span::before {
     top: 0;
     transform: rotate(45deg);
 }
 
-.nav-toggle:checked + .nav-toggle-label span::after {
+.nav-toggle:checked+.nav-toggle-label span::after {
     top: 0;
     transform: rotate(-45deg);
 }
@@ -498,12 +499,14 @@ footer {
 }
 
 /* Keep navigation separate from resume header image */
+
 .resume .site-nav::before {
     display: none;
     content: none;
 }
 
 /* Position PDF link below the navigation */
+
 .resume .download-link {
     top: 85px;
 }
@@ -511,5 +514,53 @@ footer {
 @media screen and (min-width: 1201px) {
     .resume .download-link {
         top: 85px;
+    }
+}
+
+/* DESKTOP NAVIGATION
+------------------------------------*/
+
+@media screen and (min-width: 768px) {
+
+    .nav-inner {
+        flex-wrap: nowrap;
+        padding: 1.5rem 3rem;
+        gap: 2rem;
+    }
+
+    .site-logo {
+        flex-shrink: 0;
+    }
+
+    .nav-toggle,
+    .nav-toggle-label {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-basis: auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 2.5rem;
+        padding: 0;
+        margin: 0 0 0 auto;
+    }
+
+    .nav-links li {
+        margin: 0;
+    }
+
+    .nav-links a {
+        padding: 0.5rem 0;
+    }
+
+    .nav-links .nav-contact {
+        padding: 1rem 1.5rem;
+    }
+
+    .resume .download-link {
+        top: 90px;
     }
 }
