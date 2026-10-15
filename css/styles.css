@@ -1,3 +1,4 @@
+
 /*
 COLOR PALETTE
 
@@ -34,7 +35,6 @@ https://www.paulirish.com/2012/box-sizing-border-box-ftw/
 html {
     box-sizing: border-box;
     font-size: 62.5%;
-    /* setting default to 10px */
 }
 
 *,
@@ -313,19 +313,23 @@ footer {
     }
 }
 
-/* PROJECTS PAGE
+/* PROJECTS PAGE - SUBGRID
 ------------------------------------*/
 
 .projects-page .project-wrapper {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: 1.5rem;
+    grid-auto-rows: auto auto auto;
+    column-gap: 1.5rem;
+    row-gap: 0;
 }
 
 .projects-page .project-item {
-    display: block;
+    display: grid;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
     min-width: 0;
-    margin: 0;
+    margin: 0 0 1.5rem;
     padding: 1.5rem;
     background: var(--neutral-2);
     border-radius: 0.5rem;
@@ -335,17 +339,23 @@ footer {
     display: block;
     float: none;
     width: 100%;
-    height: auto;
+    height: 160px;
+    object-fit: cover;
     margin: 0;
-    margin-block-end: 1rem;
 }
 
 .projects-page .project-item h3 {
-    margin-block-end: 1rem;
+    margin: 0;
 }
 
 .projects-page .project-item p {
-    margin-block: 0;
+    margin: 0;
+}
+
+/* Placeholder cards do not have images */
+
+.projects-page .project-item:not(:has(img)) {
+    grid-template-rows: subgrid;
 }
 
 @media screen and (min-width: 48rem) {
@@ -454,20 +464,20 @@ footer {
     color: var(--accent-green);
 }
 
-.nav-toggle:checked~.nav-links {
+.nav-toggle:checked ~ .nav-links {
     display: flex;
 }
 
-.nav-toggle:checked+.nav-toggle-label span {
+.nav-toggle:checked + .nav-toggle-label span {
     background: transparent;
 }
 
-.nav-toggle:checked+.nav-toggle-label span::before {
+.nav-toggle:checked + .nav-toggle-label span::before {
     top: 0;
     transform: rotate(45deg);
 }
 
-.nav-toggle:checked+.nav-toggle-label span::after {
+.nav-toggle:checked + .nav-toggle-label span::after {
     top: 0;
     transform: rotate(-45deg);
 }
