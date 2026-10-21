@@ -203,7 +203,8 @@ footer a:hover {
 @media screen and (min-width: 650px) and (max-width: 859px) {
     .project-wrapper {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
         column-gap: 20px;
     }
 
@@ -237,7 +238,8 @@ footer a:hover {
 @media screen and (min-width: 860px) {
     .work-item {
         display: grid;
-        grid-template-columns: 300px minmax(0, 1fr);
+        grid-template-columns:
+            300px minmax(0, 1fr);
         column-gap: 20px;
     }
 
@@ -303,13 +305,6 @@ footer {
 /* PROJECTS PAGE - SUBGRID
 ------------------------------------*/
 
-/*
-Each project card spans three rows:
-image area, heading and description.
-
-The parent grid controls the row sizes.
-*/
-
 .projects-page .project-wrapper {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -349,8 +344,6 @@ The parent grid controls the row sizes.
     grid-row: 3;
 }
 
-/* Animation cards do not have an image */
-
 .projects-page .project-item:not(:has(img)) h3 {
     grid-row: 2;
 }
@@ -359,15 +352,16 @@ The parent grid controls the row sizes.
     grid-row: 3;
 }
 
-/* Tablet: two project columns */
+/* TABLET PROJECTS */
 
 @media screen and (min-width: 600px) {
     .projects-page .project-wrapper {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 }
 
-/* Desktop: three project columns */
+/* DESKTOP PROJECTS */
 
 @media screen and (min-width: 900px) {
     .projects-page .content-wrapper {
@@ -375,7 +369,8 @@ The parent grid controls the row sizes.
     }
 
     .projects-page .project-wrapper {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
     }
 }
 
@@ -585,4 +580,130 @@ The parent grid controls the row sizes.
     .projects-page .project-item {
         padding: 1.5rem;
     }
+}
+
+/* CONTACT POPOVER STYLES
+------------------------------------*/
+
+/* Contact button */
+
+.contact-btn {
+    font-family: var(--font-body);
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.contact-btn:hover {
+    background: var(--neutral-8);
+    color: var(--neutral-1);
+}
+
+.contact-btn:focus-visible {
+    outline: 3px solid var(--accent-beige);
+    outline-offset: 3px;
+}
+
+/* Popover container */
+
+#contact-popover {
+    box-sizing: border-box;
+    width: min(90vw, 48rem);
+    max-height: 85vh;
+    padding: 2rem;
+    margin: auto;
+    border: 2px solid var(--accent-green);
+    border-radius: 1rem;
+    background: var(--neutral-1);
+    color: var(--neutral-9);
+    box-shadow: 0 12px 35px rgb(0 0 0 / 0.25);
+}
+
+/* Dark background */
+
+#contact-popover::backdrop {
+    background: rgb(0 0 0 / 0.55);
+}
+
+/* Contact card grid */
+
+.contact-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+/* Contact photo */
+
+.contact-photo {
+    display: block;
+    width: 100%;
+    max-height: 22rem;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 0.8rem;
+}
+
+/* Contact information */
+
+.contact-info {
+    min-width: 0;
+}
+
+.contact-info h2 {
+    font-family: var(--font-heading);
+    font-size: 3.6rem;
+    line-height: 1.1;
+    margin: 0 0 1rem;
+    border: none;
+}
+
+.contact-role {
+    font-weight: bold;
+    color: var(--accent-green);
+    margin: 0 0 1rem;
+}
+
+.contact-bio {
+    margin: 0 0 1rem;
+}
+
+.contact-email,
+.contact-phone {
+    margin: 0.5rem 0;
+    overflow-wrap: anywhere;
+}
+
+.contact-info a {
+    color: var(--accent-green);
+}
+
+.contact-info a:hover {
+    color: var(--neutral-8);
+}
+
+/* Close button */
+
+.contact-close {
+    background: var(--accent-green);
+    color: var(--neutral-1);
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    justify-self: start;
+}
+
+.contact-close:hover {
+    background: var(--neutral-8);
+}
+
+.contact-close:focus-visible {
+    outline: 3px solid var(--accent-beige);
+    outline-offset: 3px;
 }
