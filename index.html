@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,10 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Karamdeep Singh, Digital Design + Development Student</title>
+  <title>
+    Karamdeep Singh, Digital Design + Development Student
+  </title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Open+Sans&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
@@ -17,11 +20,17 @@
 
 <body class="home">
 
-  <!-- // NAVIGATION // -->
+  <!-- NAVIGATION -->
+
   <nav class="site-nav" aria-label="Main navigation">
+
     <div class="nav-inner">
 
-      <a href="index.html" class="site-logo nav-active" aria-current="page">KS</a>
+      <a href="index.html" class="site-logo nav-active" aria-current="page">
+        KS
+      </a>
+
+      <!-- Mobile hamburger menu -->
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
 
@@ -30,60 +39,139 @@
       </label>
 
       <ul class="nav-links">
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="projects.html">Projects</a></li>
+
         <li>
-          <a href="mailto:ksingh86@northislandcollege.ca" class="btn nav-contact">
-            Contact
+          <a href="resume.html">
+            Resume
           </a>
         </li>
+
+        <li>
+          <a href="projects.html">
+            Projects
+          </a>
+        </li>
+
+        <li>
+          <button type="button" popovertarget="contact-popover" class="btn nav-contact contact-btn">
+            Contact
+          </button>
+        </li>
+
       </ul>
 
     </div>
+
   </nav>
 
-  <!-- // INTRO // -->
+  <!-- CONTACT POPOVER -->
+
+  <article id="contact-popover" popover>
+
+    <div class="contact-card">
+
+      <img src="images/karam.jpg" alt="Photo of Karamdeep Singh" class="contact-photo">
+
+      <div class="contact-info">
+
+        <h2>Karamdeep Singh</h2>
+
+        <p class="contact-role">
+          Digital Design + Development Student
+        </p>
+
+        <p class="contact-bio">
+          I am a Digital Design and Development
+          student. I enjoy creating websites
+          and learning new skills.
+        </p>
+
+        <p class="contact-email">
+          <a href="mailto:karam@example.com">
+            karam@example.com
+          </a>
+        </p>
+
+        <p class="contact-phone">
+          <a href="tel:2505550142">
+            250-555-0142
+          </a>
+        </p>
+
+      </div>
+
+      <button type="button" class="contact-close" popovertarget="contact-popover" popovertargetaction="hide">
+        Close
+      </button>
+
+    </div>
+
+  </article>
+
+  <!-- INTRO -->
+
   <div class="content-wrapper">
 
     <div class="content-bg">
 
       <header>
+
         <h1>Karamdeep Singh</h1>
-        <h2>Digital Design and Development Student</h2>
+
+        <h2>
+          Digital Design and Development Student
+        </h2>
+
       </header>
 
-      <!-- // ABOUT ME // -->
+      <!-- ABOUT ME -->
+
       <main>
+
         <p>
-          I am currently studying Digital Design and Development at North Island College.
-          I have a background in Electronics and Communication Engineering and industrial
-          instrumentation. I am learning HTML, CSS, JavaScript and UI/UX design.
-          I enjoy learning new technology, creating websites and improving my
+          I am currently studying Digital Design
+          and Development at North Island College.
+          I have a background in Electronics and
+          Communication Engineering and industrial
+          instrumentation. I am learning HTML,
+          CSS, JavaScript and UI/UX design.
+          I enjoy learning new technology,
+          creating websites and improving my
           design and coding skills.
         </p>
 
         <p>
-          To learn more about my projects, education and work experience, check out my
-          <a href="resume.html">resume</a>. Thanks for visiting my website!
+          To learn more about my projects,
+          education and work experience,
+          check out my
+          <a href="resume.html">resume</a>.
+          Thanks for visiting my website!
 
-          <a href="projects.html" class="btn">View My Projects</a>
+          <a href="projects.html" class="btn">
+            View My Projects
+          </a>
         </p>
+
       </main>
 
     </div>
 
   </div>
 
-  <!-- // FOOTER INFO, SOCIAL MEDIA // -->
+  <!-- FOOTER -->
+
   <footer>
+
     <p>
       © 2026 by Karamdeep Singh |
+
       <a href="mailto:ksingh86@northislandcollege.ca">
         ksingh86@northislandcollege.ca
       </a>
     </p>
 
     <ul class="socials">
+
       <li>
         <a href="#" target="_blank">
           <img src="images/icon-logo-youtube.png" alt="My YouTube channel">
@@ -116,11 +204,15 @@
 
       <li>
         <a href="https://x.com/karam_sher_gill" target="_blank">
+
           <img src="images/icon-logo-twitter.png" alt="My Twitter profile">
         </a>
       </li>
+
     </ul>
+
   </footer>
 
 </body>
+
 </html>
