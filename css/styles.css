@@ -585,7 +585,7 @@ footer {
 /* CONTACT POPOVER STYLES
 ------------------------------------*/
 
-/* Contact button */
+/* Contact button and anchor */
 
 .contact-btn {
     font-family: var(--font-body);
@@ -593,6 +593,9 @@ footer {
     border: none;
     cursor: pointer;
     line-height: 1;
+
+    /* NEW - STEP 6 */
+    anchor-name: --contact-button;
 }
 
 .contact-btn:hover {
@@ -612,7 +615,15 @@ footer {
     width: min(90vw, 48rem);
     max-height: 85vh;
     padding: 2rem;
-    margin: auto;
+
+    /* NEW - STEP 6 */
+    position: fixed;
+    margin: 0;
+    inset: auto;
+    position-anchor: --contact-button;
+    position-area: bottom span-left;
+    position-try-fallbacks: flip-inline, flip-block;
+
     border: 2px solid var(--accent-green);
     border-radius: 1rem;
     background: var(--neutral-1);
