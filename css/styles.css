@@ -582,7 +582,7 @@ footer {
     }
 }
 
-/* CONTACT POPOVER STYLES
+/* CONTACT POPOVER
 ------------------------------------*/
 
 /* Contact button and anchor */
@@ -593,8 +593,6 @@ footer {
     border: none;
     cursor: pointer;
     line-height: 1;
-
-    /* NEW - STEP 6 */
     anchor-name: --contact-button;
 }
 
@@ -608,45 +606,68 @@ footer {
     outline-offset: 3px;
 }
 
-/* Popover container */
+/* POPOVER CONTAINER - STEP 7 */
 
 #contact-popover {
     box-sizing: border-box;
-    width: min(90vw, 48rem);
-    max-height: 85vh;
-    padding: 2rem;
 
-    /* NEW - STEP 6 */
+    /* Required width formula */
+    inline-size: min(100vi, max(33vi, 26rem));
+
+    /* Container query support */
+    container-type: inline-size;
+
+    /* Horizontal resizing */
+    resize: horizontal;
+    overflow: auto;
+
+    /* Resize handle on left */
+    direction: rtl;
+
+    /* Keep popup inside viewport */
+    max-inline-size: 100vi;
+    min-inline-size: min(100vi, 18rem);
+    max-height: 85vh;
+
+    /* Anchor positioning */
     position: fixed;
-    margin: 0;
-    inset: auto;
     position-anchor: --contact-button;
     position-area: bottom span-left;
     position-try-fallbacks: flip-inline, flip-block;
 
+    inset: auto;
+    margin: 0;
+
+    /* Appearance */
+    padding: 2rem;
     border: 2px solid var(--accent-green);
     border-radius: 1rem;
+
+    /* Required corner */
+    border-end-start-radius: 0;
+
     background: var(--neutral-1);
     color: var(--neutral-9);
+
     box-shadow: 0 12px 35px rgb(0 0 0 / 0.25);
 }
 
-/* Dark background */
+/* Dark backdrop */
 
 #contact-popover::backdrop {
     background: rgb(0 0 0 / 0.55);
 }
 
-/* Contact card grid */
+/* SMALL LAYOUT - DEFAULT */
 
 .contact-card {
+    direction: ltr;
+
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
     align-items: start;
 }
-
-/* Contact photo */
 
 .contact-photo {
     display: block;
@@ -656,8 +677,6 @@ footer {
     object-fit: cover;
     border-radius: 0.8rem;
 }
-
-/* Contact information */
 
 .contact-info {
     min-width: 0;
@@ -677,7 +696,10 @@ footer {
     margin: 0 0 1rem;
 }
 
+/* Bio visible by default */
+
 .contact-bio {
+    display: block;
     margin: 0 0 1rem;
 }
 
@@ -717,4 +739,72 @@ footer {
 .contact-close:focus-visible {
     outline: 3px solid var(--accent-beige);
     outline-offset: 3px;
+}
+
+/* MEDIUM CONTAINER
+------------------------------------*/
+
+@container (min-width: 24rem) {
+
+    .contact-card {
+        grid-template-columns:
+            minmax(0, 1fr) minmax(0, 2fr);
+        gap: 1.5rem;
+    }
+
+    .contact-photo {
+        grid-column: 1;
+        grid-row: 1;
+        width: 100%;
+        max-height: none;
+    }
+
+    .contact-info {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    /* Hide bio in medium layout */
+
+    .contact-bio {
+        display: none;
+    }
+
+    .contact-close {
+        grid-column: 2;
+        grid-row: 2;
+    }
+}
+
+/* LARGE CONTAINER
+------------------------------------*/
+
+@container (min-width: 28rem) {
+
+    .contact-card {
+        grid-template-columns:
+            minmax(0, 1fr) minmax(0, 2fr);
+        gap: 2rem;
+    }
+
+    .contact-photo {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .contact-info {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    /* Show bio again */
+
+    .contact-bio {
+        display: block;
+    }
+
+    .contact-close {
+        grid-column: 2;
+        grid-row: 2;
+    }
 }
