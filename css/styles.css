@@ -6,7 +6,6 @@
     --font-heading: "Caveat", cursive;
 
     --neutral: oklch(50% 0.02 150);
-
     --neutral-1: oklch(from var(--neutral) 98% c h);
     --neutral-2: oklch(from var(--neutral) 90% c h);
     --neutral-3: oklch(from var(--neutral) 80% c h);
@@ -38,9 +37,9 @@ body {
 }
 
 body {
+    margin: 0;
     background: var(--neutral-1);
     color: var(--neutral-9);
-    margin: 0;
     font-family: var(--font-body);
     font-size: 1.5rem;
     line-height: 1.4;
@@ -76,31 +75,23 @@ a:hover {
     text-decoration: none;
 }
 
-footer a {
-    color: var(--accent-beige);
-}
-
-footer a:hover {
-    color: var(--accent-green);
-}
-
 .btn {
-    background: var(--accent-green);
-    color: var(--neutral-1);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 1.2rem;
     display: inline-block;
     padding: 7px;
-    letter-spacing: 0.1em;
-    line-height: 1;
+    background: var(--accent-green);
+    color: var(--neutral-1);
     border-radius: 4px;
+    font-size: 1.2rem;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
 .content-wrapper {
+    max-width: 900px;
     margin: 0 auto;
     padding: 30px;
-    max-width: 900px;
 }
 
 /* HOME
@@ -114,17 +105,20 @@ footer a:hover {
     flex-direction: column;
 }
 
-.home .content-wrapper {
+.home>.content-wrapper {
     flex: 1 0 auto;
+    width: 100%;
     padding: 10px;
 }
 
 .content-bg {
     padding: 20px;
+    background: rgb(255 255 255 / 0.88);
+    border-radius: 8px;
 }
 
 @media screen and (min-width: 501px) {
-    .home .content-wrapper {
+    .home>.content-wrapper {
         padding: 30px;
     }
 }
@@ -132,11 +126,11 @@ footer a:hover {
 /* RESUME
 ------------------------------------*/
 
-.resume header::before {
-    background: url(../images/karam.jpg) center / cover;
+.resume .page-header::before {
     content: "";
     display: block;
     height: 200px;
+    background: url(../images/karam.jpg) center / cover;
 }
 
 .resume h1 {
@@ -147,8 +141,17 @@ footer a:hover {
     font-size: 2.6rem;
 }
 
+.resume-section {
+    margin-bottom: 50px;
+}
+
+.resume-section>h2 {
+    border-bottom: 2px dashed var(--neutral-3);
+    padding-bottom: 5px;
+}
+
 @media screen and (min-width: 501px) {
-    .resume header::before {
+    .resume .page-header::before {
         height: 375px;
     }
 
@@ -161,27 +164,17 @@ footer a:hover {
     }
 }
 
-.resume-section {
-    margin-bottom: 50px;
-}
-
-.resume-section h2 {
-    border-bottom: 2px dashed var(--neutral-3);
-}
-
 /* DOWNLOAD BUTTON
 ------------------------------------*/
 
 .download-link {
     display: inline-block;
     position: relative;
-    top: auto;
-    left: auto;
     margin: 1rem 0 0 2rem;
     font-size: 1.5rem;
 }
 
-/* PROJECTS ON RESUME PAGE
+/* RESUME PROJECTS
 ------------------------------------*/
 
 .project-item {
@@ -205,7 +198,7 @@ footer a:hover {
         display: grid;
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
-        column-gap: 20px;
+        gap: 20px;
     }
 
     .project-item img {
@@ -272,8 +265,16 @@ footer {
     padding: 0 20px;
 }
 
+footer a {
+    color: var(--accent-beige);
+}
+
+footer a:hover {
+    color: var(--accent-green);
+}
+
 .socials {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 
@@ -293,8 +294,8 @@ footer {
 @media screen and (min-width: 861px) {
     footer {
         flex-direction: row;
-        text-align: initial;
         align-items: center;
+        text-align: left;
     }
 
     .socials li {
@@ -327,21 +328,21 @@ footer {
 .projects-page .project-item img {
     display: block;
     float: none;
+    grid-row: 1;
     width: 100%;
     height: 160px;
     object-fit: cover;
     margin: 0;
-    grid-row: 1;
 }
 
 .projects-page .project-item h3 {
-    margin: 0;
     grid-row: 2;
+    margin: 0;
 }
 
 .projects-page .project-item p {
-    margin: 0;
     grid-row: 3;
+    margin: 0;
 }
 
 .projects-page .project-item:not(:has(img)) h3 {
@@ -352,16 +353,12 @@ footer {
     grid-row: 3;
 }
 
-/* TABLET PROJECTS */
-
 @media screen and (min-width: 600px) {
     .projects-page .project-wrapper {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
     }
 }
-
-/* DESKTOP PROJECTS */
 
 @media screen and (min-width: 900px) {
     .projects-page .content-wrapper {
@@ -524,8 +521,8 @@ footer {
 @media screen and (min-width: 768px) {
     .nav-inner {
         flex-wrap: nowrap;
-        padding: 1.5rem 3rem;
         gap: 2rem;
+        padding: 1.5rem 3rem;
     }
 
     .site-logo {
@@ -548,10 +545,6 @@ footer {
         margin: 0 0 0 auto;
     }
 
-    .nav-links li {
-        margin: 0;
-    }
-
     .nav-links a {
         padding: 0.5rem 0;
     }
@@ -561,7 +554,7 @@ footer {
     }
 }
 
-/* SMALL SCREEN FIXES
+/* SMALL SCREEN
 ------------------------------------*/
 
 @media screen and (max-width: 500px) {
@@ -576,16 +569,10 @@ footer {
     .resume h2 {
         font-size: 2.6rem;
     }
-
-    .projects-page .project-item {
-        padding: 1.5rem;
-    }
 }
 
-/* CONTACT POPOVER
+/* CONTACT BUTTON AND ANCHOR
 ------------------------------------*/
-
-/* Contact button and anchor */
 
 .contact-btn {
     font-family: var(--font-body);
@@ -593,6 +580,7 @@ footer {
     border: none;
     cursor: pointer;
     line-height: 1;
+
     anchor-name: --contact-button;
 }
 
@@ -606,27 +594,25 @@ footer {
     outline-offset: 3px;
 }
 
-/* POPOVER CONTAINER - STEP 7 */
+/* CONTACT POPOVER
+------------------------------------*/
 
 #contact-popover {
     box-sizing: border-box;
 
-    /* Required width formula */
+    /* Required width */
     inline-size: min(100vi, max(33vi, 26rem));
 
-    /* Container query support */
+    /* Container queries */
     container-type: inline-size;
 
     /* Horizontal resizing */
     resize: horizontal;
     overflow: auto;
-
-    /* Resize handle on left */
     direction: rtl;
 
-    /* Keep popup inside viewport */
-    max-inline-size: 100vi;
     min-inline-size: min(100vi, 18rem);
+    max-inline-size: 100vi;
     max-height: 85vh;
 
     /* Anchor positioning */
@@ -638,12 +624,9 @@ footer {
     inset: auto;
     margin: 0;
 
-    /* Appearance */
     padding: 2rem;
     border: 2px solid var(--accent-green);
     border-radius: 1rem;
-
-    /* Required corner */
     border-end-start-radius: 0;
 
     background: var(--neutral-1);
@@ -652,17 +635,15 @@ footer {
     box-shadow: 0 12px 35px rgb(0 0 0 / 0.25);
 }
 
-/* Dark backdrop */
-
 #contact-popover::backdrop {
     background: rgb(0 0 0 / 0.55);
 }
 
-/* SMALL LAYOUT - DEFAULT */
+/* SMALL CONTACT LAYOUT
+------------------------------------*/
 
 .contact-card {
     direction: ltr;
-
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
@@ -696,15 +677,12 @@ footer {
     margin: 0 0 1rem;
 }
 
-/* Bio visible by default */
-
 .contact-bio {
     display: block;
     margin: 0 0 1rem;
 }
 
-.contact-email,
-.contact-phone {
+.contact-email {
     margin: 0.5rem 0;
     overflow-wrap: anywhere;
 }
@@ -717,7 +695,8 @@ footer {
     color: var(--neutral-8);
 }
 
-/* Close button */
+/* CLOSE BUTTON
+------------------------------------*/
 
 .contact-close {
     background: var(--accent-green);
@@ -745,7 +724,6 @@ footer {
 ------------------------------------*/
 
 @container (min-width: 24rem) {
-
     .contact-card {
         grid-template-columns:
             minmax(0, 1fr) minmax(0, 2fr);
@@ -755,7 +733,6 @@ footer {
     .contact-photo {
         grid-column: 1;
         grid-row: 1;
-        width: 100%;
         max-height: none;
     }
 
@@ -763,8 +740,6 @@ footer {
         grid-column: 2;
         grid-row: 1;
     }
-
-    /* Hide bio in medium layout */
 
     .contact-bio {
         display: none;
@@ -780,31 +755,13 @@ footer {
 ------------------------------------*/
 
 @container (min-width: 28rem) {
-
     .contact-card {
         grid-template-columns:
             minmax(0, 1fr) minmax(0, 2fr);
         gap: 2rem;
     }
 
-    .contact-photo {
-        grid-column: 1;
-        grid-row: 1;
-    }
-
-    .contact-info {
-        grid-column: 2;
-        grid-row: 1;
-    }
-
-    /* Show bio again */
-
     .contact-bio {
         display: block;
-    }
-
-    .contact-close {
-        grid-column: 2;
-        grid-row: 2;
     }
 }
